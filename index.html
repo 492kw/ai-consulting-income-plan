@@ -55,8 +55,131 @@
     a:hover { text-decoration: underline; }
     footer { margin-top: 24px; color: var(--muted); font-size: .95rem; }
     .graphic-card { overflow: hidden; }
-    .income-graphic, .income-video { width: 100%; border: 1px solid var(--line); border-radius: 18px; background: #f6f1e8; display: block; }
-    .income-video { margin-top: 14px; }
+    .income-graphic { width: 100%; border: 1px solid var(--line); border-radius: 18px; background: #f6f1e8; display: block; }
+    .income-animation {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 15% 12%, #fffaf2 0%, #f6f1e8 46%, #eee0cf 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.7);
+      isolation: isolate;
+    }
+    .income-animation::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .14;
+      background-image: radial-gradient(#6c4a2a .8px, transparent .8px);
+      background-size: 24px 24px;
+      animation: grainDrift 18s linear infinite;
+      z-index: -1;
+    }
+    .income-ring {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -90px;
+      top: -110px;
+      border-radius: 50%;
+      border: 46px solid rgba(179,107,44,.12);
+      animation: slowRing 9s ease-in-out infinite alternate;
+    }
+    .income-live-content {
+      position: relative;
+      display: grid;
+      grid-template-columns: .88fr 1.12fr;
+      gap: 22px;
+      padding: 34px;
+      min-height: 520px;
+    }
+    .income-live-panel {
+      background: rgba(255,250,242,.92);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 20px 54px rgba(65,43,20,.09);
+      animation: panelEnter .9s cubic-bezier(.2,.8,.2,1) both;
+    }
+    .income-live-panel.steps-panel { animation-delay: .18s; }
+    .income-live-kicker {
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 850;
+    }
+    .income-live-title {
+      margin: 14px 0 12px;
+      font-size: clamp(2.1rem, 5vw, 4.4rem);
+      line-height: .92;
+      letter-spacing: -.075em;
+    }
+    .income-live-sub {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+      line-height: 1.28;
+      max-width: 38rem;
+    }
+    .income-live-target {
+      display: inline-flex;
+      gap: 14px;
+      align-items: baseline;
+      margin-top: 24px;
+      background: var(--text);
+      color: #fff;
+      border-radius: 24px;
+      padding: 22px 26px;
+      animation: targetPulse 2.8s ease-in-out infinite;
+    }
+    .income-live-target b {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: .85;
+      letter-spacing: -.05em;
+    }
+    .income-live-target span { color: #ead8c5; font-size: .95rem; }
+    .income-live-steps { display: grid; gap: 13px; }
+    .income-live-step {
+      display: grid;
+      grid-template-columns: 58px minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+      padding: 14px;
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      transform: translateX(28px);
+      opacity: 0;
+      animation: stepIn .7s cubic-bezier(.2,.8,.2,1) forwards;
+    }
+    .income-live-step:nth-child(1) { animation-delay: .55s; }
+    .income-live-step:nth-child(2) { animation-delay: .85s; }
+    .income-live-step:nth-child(3) { animation-delay: 1.15s; }
+    .income-live-step:nth-child(4) { animation-delay: 1.45s; }
+    .income-live-num {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      background: rgba(179,107,44,.14);
+      font-weight: 900;
+      font-size: 1.4rem;
+    }
+    .income-live-step h3 { margin: 0 0 4px; font-size: 1.18rem; line-height: 1.05; }
+    .income-live-step p { margin: 0; color: var(--muted); font-size: .93rem; line-height: 1.22; }
+    .motion-note { margin-top: 12px; font-size: .92rem; color: var(--muted); }
+    @keyframes panelEnter { from { opacity: 0; transform: translateY(34px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes stepIn { to { opacity: 1; transform: translateX(0); } }
+    @keyframes slowRing { from { transform: rotate(0deg) scale(1); } to { transform: rotate(16deg) scale(1.05); } }
+    @keyframes targetPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(179,107,44,0); } 50% { transform: scale(1.025); box-shadow: 0 18px 38px rgba(179,107,44,.16); } }
+    @keyframes grainDrift { from { background-position: 0 0; } to { background-position: 120px 96px; } }
+    @media (prefers-reduced-motion: reduce) {
+      .income-animation::before, .income-ring, .income-live-panel, .income-live-target, .income-live-step { animation: none; opacity: 1; transform: none; }
+    }
 
     @media (max-width: 900px) {
       header, .grid { grid-template-columns: 1fr; }
@@ -133,9 +256,28 @@
 
     <section class="card graphic-card">
       <h2>Visual plan</h2>
-      <p class="muted">A generated visual from the $50k road trip income conversation.</p>
-      <img class="income-graphic" src="graphics/income-goal-poster.png" alt="$50k road trip income plan graphic" />
-      <video class="income-video" src="graphics/income-plan.mp4" controls muted playsinline preload="metadata"></video>
+      <p class="muted">Embedded motion graphic. It runs directly on the page, so there is no play button and no video player to click.</p>
+      <div class="income-animation" role="img" aria-label="$50k road trip income plan animated graphic">
+        <div class="income-ring" aria-hidden="true"></div>
+        <div class="income-live-content">
+          <div class="income-live-panel">
+            <div class="income-live-kicker">Australia road trip revenue plan</div>
+            <h3 class="income-live-title">$50k from focused consulting, not scattered ideas.</h3>
+            <p class="income-live-sub">One clear offer. Weekly outreach. Paid pilots first. Recurring support second. Tennis and IT contracts stay as backup streams.</p>
+            <div class="income-live-target"><b>$50k</b><span>cash target before the trip</span></div>
+          </div>
+          <div class="income-live-panel steps-panel">
+            <div class="income-live-steps">
+              <div class="income-live-step"><div class="income-live-num">1</div><div><h3>Sell one concrete outcome</h3><p>AI workflow prototype, intake automation, document-to-CSV, or small internal tool.</p></div></div>
+              <div class="income-live-step"><div class="income-live-num">2</div><div><h3>Win paid pilots</h3><p>Target 1–2 fixed-scope pilots at $2k–$5k, then convert one to support.</p></div></div>
+              <div class="income-live-step"><div class="income-live-num">3</div><div><h3>Run the weekly cadence</h3><p>5 targeted emails, 2 follow-ups, 1 offer refinement, 1 proof asset improved.</p></div></div>
+              <div class="income-live-step"><div class="income-live-num">4</div><div><h3>Protect the downside</h3><p>No LinkedIn risk. No overbuilding. Use contract work only if consulting pipeline is slow.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="motion-note">Static fallback image kept below for slow connections or printing.</p>
+      <img class="income-graphic" src="graphics/income-goal-poster.png" alt="$50k road trip income plan static graphic" loading="lazy" />
     </section>
 
     <section class="card">
