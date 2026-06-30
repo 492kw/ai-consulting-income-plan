@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI consulting hyperframe</title>
+  <style>
+    :root {
+      --bg: #f6f1e8;
+      --card: #fffaf2;
+      --text: #1f1a14;
+      --muted: #66584a;
+      --accent: #b36b2c;
+      --line: #e5d7c7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #fbf7f0 0%, var(--bg) 100%);
+      line-height: 1.5;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px; }
+    header {
+      display: grid; gap: 14px; grid-template-columns: 1.3fr .7fr;
+      align-items: start; margin-bottom: 28px;
+    }
+    .hero {
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+      padding: 28px; box-shadow: 0 12px 30px rgba(33, 22, 10, .06);
+    }
+    .kicker { text-transform: uppercase; letter-spacing: .12em; color: var(--accent); font-size: .78rem; font-weight: 700; }
+    h1 { margin: 10px 0 12px; font-size: clamp(2.2rem, 4vw, 4.2rem); line-height: 1.02; }
+    p { margin: 0 0 12px; color: var(--text); }
+    .muted { color: var(--muted); }
+    .pillrow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .pill { padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-size: .92rem; }
+    .side {
+      background: var(--card); border: 1px solid var(--line); border-radius: 22px;
+      padding: 22px; position: sticky; top: 18px;
+    }
+    .stat { display: grid; grid-template-columns: auto 1fr; gap: 8px 12px; margin: 14px 0; }
+    .stat b { color: var(--accent); }
+    section { margin-top: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+    .card h2, .card h3 { margin: 0 0 10px; }
+    ol, ul { margin: 10px 0 0 20px; }
+    .timeline { display: grid; gap: 12px; }
+    .step { display: grid; grid-template-columns: 88px 1fr; gap: 12px; align-items: start; }
+    .step .num { font-weight: 800; color: var(--accent); }
+    .quote { font-style: italic; border-left: 4px solid var(--accent); padding-left: 14px; color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    footer { margin-top: 24px; color: var(--muted); font-size: .95rem; }
+    @media (max-width: 900px) {
+      header, .grid { grid-template-columns: 1fr; }
+      .side { position: static; }
+      .step { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="hero">
+        <div class="kicker">AI consulting hyperframe</div>
+        <h1>Build the consulting engine that funds the Australia road trip.</h1>
+        <p class="muted">This is the working frame for the pivot: sell practical AI help to small businesses, package one clear outcome, and use the website as proof in outreach.</p>
+        <div class="pillrow">
+          <span class="pill">Practical AI consulting</span>
+          <span class="pill">Fixed-scope pilots</span>
+          <span class="pill">Small business focus</span>
+          <span class="pill">Road trip revenue target: $50k</span>
+        </div>
+      </div>
+      <aside class="side">
+        <h2>Hyperframe</h2>
+        <div class="stat"><b>1</b><span>Offer: one clear outcome</span></div>
+        <div class="stat"><b>2</b><span>Targets: pilots, retainers, backup contracts</span></div>
+        <div class="stat"><b>3</b><span>Cadence: weekly outreach + follow-ups</span></div>
+        <div class="stat"><b>4</b><span>Milestones: first call, first pilot, second win</span></div>
+      </aside>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>The offer</h2>
+        <p>Lead with one concrete result:</p>
+        <ul>
+          <li>missed lead rescue</li>
+          <li>booking and intake automation</li>
+          <li>document extraction into clean data</li>
+          <li>small internal admin tools</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Revenue targets</h2>
+        <ul>
+          <li>1–2 consulting pilots at $2k–$5k each</li>
+          <li>1 recurring support client</li>
+          <li>1 secondary recurring stream</li>
+          <li>1 fallback contract or remote IT pipeline</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Weekly cadence</h2>
+        <div class="timeline">
+          <div class="step"><div class="num">Week</div><div>Send 5 targeted outreach emails.</div></div>
+          <div class="step"><div class="num">Follow-up</div><div>Send 2 follow-ups.</div></div>
+          <div class="step"><div class="num">Refine</div><div>Adjust the offer from real replies.</div></div>
+          <div class="step"><div class="num">Proof</div><div>Improve one page or demo on the website.</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Milestones</h2>
+        <div class="timeline">
+          <div class="step"><div class="num">Month 1</div><div>First qualified calls.</div></div>
+          <div class="step"><div class="num">Month 2</div><div>First paid pilot.</div></div>
+          <div class="step"><div class="num">Month 3</div><div>Second paid pilot or recurring support.</div></div>
+          <div class="step"><div class="num">Trip ready</div><div>Cash + recurring income reduce travel risk.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Creation note</h2>
+      <p class="quote">"The public site was reviewed and the positioning now reads as practical software consulting for small businesses."</p>
+      <p>This page exists to make the pivot visible: the site should read consulting-first, not demo-first.</p>
+    </section>
+
+    <footer>
+      Derived from the AI Services consulting pivot. Link this page from the main site as the hyperframe reference.
+      <br />
+      Obsidian record: <code>/home/simon/Obsidian-Vault/Categories/Conversations/2026-06-30-Roadtrip-50k-Hyperframe-Plan.md</code>
+    </footer>
+  </div>
+</body>
+</html>
